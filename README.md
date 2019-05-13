@@ -17,3 +17,20 @@ If you want or need to tweak your image for specific cases, make sure you open a
 **Once you are done with your testing, and only then, you can do `vagrant destroy` to remove and clean your local machine.** 
 
 
+## UPDATING THIS BOX
+
+When updating this box, please ensure you edit their respective modules:  
+* provisions - reflect the `provisions.sh` file and your commits should reference that module.
+* box - reflect modifications to the `Vagrantfile` directly, which only envolve machine configurations.
+* misc - other kinds of tweaks.
+
+That said, your commits should look similar to:  
+```
+module: updated something up until 72 characters
+
+    And here I detail the changes I have done if required.
+
+context: if there is any documetnation/news that should associated with this commit
+ref: issue/basecamp item that is related to this commit
+```
+

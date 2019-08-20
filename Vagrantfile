@@ -1,3 +1,4 @@
+Vagrant.configure("2") do |config|
 # -*- mode: ruby -*- # vi: set ft=ruby : Vagrant.configure("2") do |config|
   # ########--------------------------##########
   # This box uses the base version of Ubuntu Bionic Beaver 18.04 LTS.
@@ -10,8 +11,10 @@
   ################################################################
   ## PROVIDER - Should be Virtualbox by default but just in case.
   ## Sets up machine with 2 GBs of RAM and 2 CPUs for VirtualBox
-  echo "Dealing with the Provider"
-  echo "........................."
+  config.vm.provision "shell", inline: <<-SHELL
+    echo "Dealing with the Provider"
+    echo "........................."
+  SHELL
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     vb.memory = 2048

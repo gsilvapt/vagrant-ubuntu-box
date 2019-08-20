@@ -41,6 +41,5 @@ module: updated something up until 72 characters
     And here I detail the changes I have done if required.
 
 context: if there is any documetnation/news that should associated with this commit
-ref: issue/basecamp item that is related to this commit
+ref: issue that is related to this commit
 ```
-

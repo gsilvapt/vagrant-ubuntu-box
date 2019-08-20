@@ -16,11 +16,9 @@ Vagrant.configure("2") do |config|
     echo "........................."
   SHELL
   config.vm.provider "virtualbox" do |vb|
-    # Display the VirtualBox GUI when booting the machine
     vb.memory = 2048
     vb.cpus = 2
     vb.gui = true
-    # Customize the amount of memory on the VM:
   end
 
   ## NETWORK - Should only be modified when we need custom options.
@@ -41,23 +39,18 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "provisions.sh"
 
   ################################################################
-  # Section 3 - PROVISIONS: Create Users in machine
-  ################################################################
-  config.vm.provision "shell", path: "users.sh"
-
-  ################################################################
-  # Section 4 - CLEANUP AND REBOOT
+  # Section 3 - CLEANUP AND REBOOT
   ################################################################
   # Using inline form
   config.vm.provision "shell", inline: <<-SHELL
-    echo "Cleaning up maching"
-    apt update
-    apt upgrade -y 
-    apt autoremove
-    apt autoclean
+    echo "Cleaning up maching";
+    apt update;
+    apt upgrade -y;
+    apt autoremove;
+    apt autoclean;
 
-    echo "Restarting container" 
-    echo "..........................."
-    shutdown -r 1
+    echo "Restarting container";
+    echo "...........................";
+    reboot;
   SHELL
 end

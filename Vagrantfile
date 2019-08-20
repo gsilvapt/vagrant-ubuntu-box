@@ -38,11 +38,15 @@ Vagrant.configure("2") do |config|
   ################################################################
   # Section 2 - PROVISIONS: Install SSH, NGINX, DOCKER AND VIM
   ################################################################
-  # A demonstration of possibilities: Using external files
   config.vm.provision "shell", path: "provisions.sh"
 
   ################################################################
-  # Section 3 - CLEANUP AND REBOOT
+  # Section 3 - PROVISIONS: Create Users in machine
+  ################################################################
+  config.vm.provision "shell", path: "users.sh"
+
+  ################################################################
+  # Section 4 - CLEANUP AND REBOOT
   ################################################################
   # Using inline form
   config.vm.provision "shell", inline: <<-SHELL
